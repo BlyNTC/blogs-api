@@ -1,7 +1,7 @@
-const statusCode = require('http-status-codes');
-
 const errorHandler = (err, _req, res, _next) => {
-  res.status(statusCode.INTERNAL_SERVER_ERROR)
+  console.log(`ERRO CABULOSO
+  `, err);
+  res.status(err.code)
     .json({ message: err.message });
 };
 

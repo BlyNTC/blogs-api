@@ -1,15 +1,6 @@
 const Router = require('express').Router();
-const rescue = require('express-rescue');
+const { createUser } = require('../controllers/userMiddle');
 
-Router.post('/', rescue((req, res) => {
-  if (req.body.error) {
-    const error = new Error();
-    error.message = 'ERROR Xablau';
-    throw error;
-  }
-  res.status(200).json({
-    message: 'XABLAU',
-  });
-}));
+Router.post('/', createUser);
 
 module.exports = Router;
