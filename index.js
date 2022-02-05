@@ -4,7 +4,8 @@ const errorHandler = require('./handlers/errorHandler');
 
 const app = express();
 
-const usersRoute = require('./routes/userRouter');
+const userRoute = require('./routes/userRouter');
+const loginRouter = require('./routes/loginRouter');
 
 app.use('/', require('body-parser').json());
 
@@ -15,11 +16,11 @@ app.get('/', (request, response) => {
   response.send();
 });
 
-app.use('/user', usersRoute);
+app.use('/user', userRoute);
+
+app.use('/login', loginRouter);
 
 app.use('/', errorHandler);
-
-// app.use('/login');
 
 // app.use('/category');
 
