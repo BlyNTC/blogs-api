@@ -5,7 +5,8 @@ const errorHandler = require('./handlers/errorHandler');
 const app = express();
 
 const userRoute = require('./routes/userRouter');
-const loginRouter = require('./routes/loginRouter');
+const loginRoute = require('./routes/loginRouter');
+const categorieRoute = require('./routes/categorieRouter');
 
 app.use('/', require('body-parser').json());
 
@@ -18,10 +19,10 @@ app.get('/', (request, response) => {
 
 app.use('/user', userRoute);
 
-app.use('/login', loginRouter);
+app.use('/login', loginRoute);
 
-app.use('/', errorHandler);
-
-// app.use('/category');
+app.use('/categories', categorieRoute);
 
 // app.use('/post');
+
+app.use('/', errorHandler);
