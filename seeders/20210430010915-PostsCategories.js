@@ -11,7 +11,7 @@ module.exports = {
           categoryId: 2,
         },
 
-      ], { timestamps: false });
+      ]);
   },
 
   down: async (queryInterface, _Sequelize) => {
