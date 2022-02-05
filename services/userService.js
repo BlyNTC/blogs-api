@@ -19,7 +19,14 @@ const createUserService = async (reqBody) => {
 
 const listUserService = async () => Users.findAll();
 
+const listUserByIdService = async (id) => {
+  const user = await Users.findByPk(id);
+  if (!user) throwError(404, 'User does not exist');
+  return user;
+};
+
 module.exports = {
   createUserService,
   listUserService,
+  listUserByIdService,
 };
