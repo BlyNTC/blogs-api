@@ -1,11 +1,13 @@
 const errorHandler = (err, _req, res, _next) => {
+  let { code } = err;
   console.log(`ERRO CABULOSO
-  `, err);
+  `, err.details);
   if (err.message === 'invalid token' || err.message.includes('jwt')) {
  return res.status(401)
     .json({ message: 'Expired or invalid token' }); 
 }
-  res.status(err.code)
+  if (!code) code = 500;
+  res.status(code)
     .json({ message: err.message });
 };
 

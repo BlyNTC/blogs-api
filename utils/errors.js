@@ -3,9 +3,9 @@
 const validateWithJoi = (schema, object) => {
   const { error } = schema.validate(object);
   if (error) {
+    const { details: [{ message }] } = error;
     console.log(`ERRO JOI
-    `, error);
-  const { details: [{ message }] } = error;
+    `, message);
     error.code = 400;
     error.message = message;
     throw error;
@@ -16,7 +16,7 @@ const throwError = (code, message) => {
   const error = new Error();
   error.message = message;
   error.code = code;
-  console.log('ERRO NO ERRORS', error);
+  console.log('THROWERROR MESSAGE', error.message);
   throw error;
 };
 

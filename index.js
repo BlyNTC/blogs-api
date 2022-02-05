@@ -7,6 +7,7 @@ const app = express();
 const userRoute = require('./routes/userRouter');
 const loginRoute = require('./routes/loginRouter');
 const categorieRoute = require('./routes/categorieRouter');
+const postRoute = require('./routes/postRouter');
 
 app.use('/', require('body-parser').json());
 
@@ -23,6 +24,6 @@ app.use('/login', loginRoute);
 
 app.use('/categories', categorieRoute);
 
-// app.use('/post');
+app.use('/post', postRoute);
 
 app.use('/', errorHandler);

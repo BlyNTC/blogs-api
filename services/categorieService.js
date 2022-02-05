@@ -1,5 +1,3 @@
-require('dotenv').config();
-
 const { Categories } = require('../models');
 const categorieSchemas = require('../schemas/categorieSchemas');
 const { validateWithJoi } = require('../utils/errors');
